@@ -91,7 +91,7 @@ function Leftbar() {
         </div>
       </div>
       {/* overlay */}
-      {showMore ? <div className="  h-screen bg-black/50 w-screen z-10 absolute"></div> : <div>  </div>}
+      {showMore ? <div className="duration-300 h-screen bg-black/50 w-screen z-10 absolute"></div> : <div>  </div>}
      
 
       {/* moreContainer */}

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 import app from "../../firebase";
+import profileimage from "../images/profilePic.jpg";
 import imageIcon from "../images/imageIcon.png";
 import videoIcon from "../images/videoIcon.png";
 import emojiIcon from "../images/emojiIcon.png";
+import { BsFillImageFill } from "react-icons/bs";
+import { RiVideoFill } from "react-icons/ri";
 import "./contentPost.css";
 import { useSelector } from "react-redux";
 import {
@@ -17,7 +20,7 @@ import {
 function ContentPost() {
   const userDetails = useSelector((state) => state.user);
   const user = userDetails.user;
-  const profileimage = user.other.profile;
+  // const profileimage = user.other.profile;
   const accessToken = user.accessToken;
 
   const [file, setFile] = useState("");
@@ -71,10 +74,10 @@ function ContentPost() {
                 image: downloadURL,
                 video: "",
               }),
-            }).then((data)=> {
+            }).then((data) => {
               alert("your post was uploaded successfully");
-              window.location.reload(true)
-            })
+              window.location.reload(true);
+            });
           });
         }
       );
@@ -119,10 +122,10 @@ function ContentPost() {
                 video: downloadURL,
                 image: "",
               }),
-            }).then((data)=> {
+            }).then((data) => {
               alert("your post was uploaded successfully");
-              window.location.reload(true)
-            })
+              window.location.reload(true);
+            });
           });
         }
       );
@@ -133,40 +136,50 @@ function ContentPost() {
           "Content-Type": "application/json",
           token: accessToken,
         },
-        body: JSON.stringify({ title: title, video: "", image: "" }),
-      }).then((data)=> {
+        body: JSON.stringify({ title: title, video: "",image: "" }),
+      }).then((data) => {
         alert("your post was uploaded successfully");
-        window.location.reload(true)
-      })
+        window.location.reload(true);
+      });
     } else {
       console.log("please  select a content to upload");
     }
   };
 
   return (
-    <div>
-      <div className="ContentUploadContainer">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={profileimage} className="ProfileImageContentTab" alt="" />
+    <div className="bg-slate-50 rounded-xl ml-[60px] sm:ml-[100px] md:ml-[300px]  lg:ml-[350px] mt-[10px] md:w-[500px] lg:w-[700px] transition-all duration-200">
+      <div className="flex pt-5 pl-10">
+        <div className="flex-none">
+          <img
+            src={profileimage}
+            className="h-[50px] w-[50px] rounded-full "
+            alt=""
+          />
+        </div>
+        <div className="ml-3 flex-auto mt-3">
           <input
             type="text"
-            className="ContentWritingPart"
+            className="bg-transparent w-3/4"
+            // focus:outline-none
             placeholder="Write your real thought"
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div style={{ marginLeft: "80px" }}>
-          {imagePre !== null ? (
-            <img className="imagePre" src={imagePre} />
-          ) : videoPre !== null ? (
-            <video className="imagePre" src={videoPre}></video>
-          ) : (
-            ""
-          )}
+      </div>
 
-          <div>
+      <div className="py-10 ml-12">
+        {imagePre !== null ? (
+          <img className="imagePre" src={imagePre} />
+        ) : videoPre !== null ? (
+          <video className="imagePre" src={videoPre}></video>
+        ) : (
+          ""
+        )}
+
+        <div className="flex relative cursor-pointer ">
+        
             <label htmlFor="file">
-              <img src={`${imageIcon}`} className="Icons" alt="" />
+              <BsFillImageFill size={30} className="mt-8" />
               <input
                 type="file"
                 name="file"
@@ -178,9 +191,9 @@ function ContentPost() {
                 ]}
               />
             </label>
-            <img src={`${emojiIcon}`} className="Icons" alt="" />
+
             <label htmlFor="file2">
-              <img src={`${videoIcon}`} className="Icons" alt="" />
+              <RiVideoFill className="mt-7 ml-9" size={35} />
 
               <input
                 type="file"
@@ -193,10 +206,13 @@ function ContentPost() {
                 ]}
               />
             </label>
-            <button className="post-button" onClick={handlePost}>
+          
+
+          
+            <button className="absolute right-3 mt-8 bg-black text-white px-6 py-2 border-solid border-black border-2 rounded-lg hover:bg-transparent hover:text-black" onClick={handlePost}>
               Post
             </button>
-          </div>
+          
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import profilePicture from "../images/profilePic.jpg";
 import commentIcon from "../images/commentIcon.png";
 import blackHeart from "../images/heartIcon.png";
 import redHeart from "../images/anotherHeart.png";
-import "./post.css";
+// import "./post.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -97,9 +97,9 @@ function Post({ post }) {
   };
 
   return (
-    <div className="PostContainer">
-      <div className="SubPostContainer">
-        <div style={{ display: "flex", marginLeft: "30px" }}>
+    <div  className=" ml-[200px]">
+      <div >
+        <div >
           <img
             src={loggedInUser?.other?.profile}
             className="PostProfileImage"

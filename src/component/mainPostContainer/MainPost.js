@@ -31,7 +31,7 @@ function MainPost() {
   }, []);
 
   return (
-    <div className="MainPostContainer">
+    <div >
       <ContentPost />
       {post.map((items) => (
         <Post post={items} />

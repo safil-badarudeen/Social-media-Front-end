@@ -8,8 +8,8 @@ import "./Home.css";
 const Home = () => {
   return (
     
-      <div className="flex gap-6 bg-gray-300">
-        <div className='bg-gray-300'>
+      <div className="flex h-fit bg-gray-300">
+        <div className='bg-gray-300 '>
         <LeftBar />
         </div>
         <div className='bg-gray-300'>
