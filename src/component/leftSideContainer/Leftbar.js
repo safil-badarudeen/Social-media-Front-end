@@ -1,138 +1,128 @@
-import React, { useState, useEffect } from "react";
-import Image from "../images/friendprofile.jpg";
-import axios from "axios";
-import "./leftbar.css";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { SlHome } from "react-icons/sl";
+import { BiSearchAlt, BiLogOut } from "react-icons/bi";
+import { FaWpexplorer } from "react-icons/fa";
+import { BsChatSquareText } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
+import { FiSettings } from "react-icons/fi";
+import { CgDetailsMore } from "react-icons/cg";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useEffect } from "react";
 
 function Leftbar() {
-  
-  // console.log(post)
+  const [showMore, setShowMore] = useState(false);
+ 
+
+ 
+
   return (
-    <div className="Leftbar">
-      <div className="NotificationContainer">
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
-          <p style={{ marginLeft: "-20px" }}> Notifications </p>
-          <p style={{ color: "#aaaa" }}> See All</p>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "start",
-            width: "240px",
-            marginTop: "-10px",
-          }}
-        >
-          <img
-            src={`${Image}`}
-            className="NotificationImage"
-            alt="notificationImage"
-          />
-          <p style={{ marginLeft: "10px", color: "#aaa", fontSize: "16px" }}>
-            Mubashir liked your post of profile
+    <div className="flex flex-col max-h-full sm:h-full md:h-full fixed bg-slate-50 rounded-lg md:min-w-[200px] lg:min-w-[300px]">
+      <div className="mt-10">
+        <Link to="/">
+          <p className=" font-bold font-mono text-3xl text-indigo-500 hidden md:block lg:block">
+            Sphere
           </p>
-          <img src={`${Image}`} className="LikedImage" alt="Liked" />
+        </Link>
+      </div>
+
+      <Link to="/">
+        <div className="ml-5 mt-5 py-8 overflow-hidden  rounded-xl flex  hover:scale-110 duration-300 hover:bg-slate-200">
+          <div className=" mt-2 px-2">
+            <SlHome className="scale-150" />
+          </div>
+          <div className="hidden md:block lg:block ">
+            <h1 className="text-xl pl-20">Home</h1>
+          </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "start",
-            width: "240px",
-            marginTop: "-10px",
-          }}
-        >
-          <img
-            src={`${Image}`}
-            className="NotificationImage"
-            alt="notificationImage"
-          />
-          <p style={{ marginLeft: "10px", color: "#aaa", fontSize: "16px" }}>
-            mubashir started following you{" "}
-          </p>
-          <img
-            src={`${Image}`}
-            className="FollowingUserImage"
-            alt="followingUser"
-          />
+      </Link>
+
+      <div className="ml-5  py-8   rounded-xl flex   hover:scale-110 duration-300 hover:bg-slate-200">
+        <div className="px-2 mt-2">
+          <BiSearchAlt className="scale-150" />
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "start",
-            width: "240px",
-            marginTop: "-10px",
-          }}
-        >
-          <img
-            src={`${Image}`}
-            className="NotificationImage"
-            alt="notificationImage"
-          />
-          <p style={{ marginLeft: "10px", color: "#aaa", fontSize: "16px" }}>
-            Mubashir liked your post of profile
-          </p>
-          <img src={`${Image}`} className="LikedImage" alt="Liked " />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "start",
-            width: "240px",
-            marginTop: "-10px",
-          }}
-        >
-          <img
-            src={`${Image}`}
-            className="NotificationImage"
-            alt="notificationImage"
-          />
-          <p style={{ marginLeft: "10px", color: "#aaa", fontSize: "16px" }}>
-            mubashir started following you
-          </p>
-          <img src={`${Image}`} className="FollowingUserImage" alt="Liked " />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "start",
-            width: "240px",
-            marginTop: "-10px",
-          }}
-        >
-          <img
-            src={`${Image}`}
-            className="NotificationImage"
-            alt="notificationImage"
-          />
-          <p style={{ marginLeft: "10px", color: "#aaa", fontSize: "16px" }}>
-            Mubashir liked your post of profile
-          </p>
-          <img src={`${Image}`} className="LikedImage" alt="Liked " />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "start",
-            width: "240px",
-            marginTop: "-10px",
-          }}
-        >
-          <img
-            src={`${Image}`}
-            className="NotificationImage"
-            alt="notificationImage"
-          />
-          <p style={{ marginLeft: "10px", color: "#aaa", fontSize: "16px" }}>
-            Mubashir liked your post of profile
-          </p>
-          <img src={`${Image}`} className="LikedImage" alt="Liked " />
+        <div className="hidden md:block lg:block">
+          <h1 className="text-xl pl-20">Search</h1>
         </div>
       </div>
+
+      <div className="ml-5  py-8 rounded-xl flex hover:scale-110 duration-300 hover:bg-slate-200">
+        <div className=" px-2 mt-2">
+          <FaWpexplorer className="scale-150" />
+        </div>
+        <div className="hidden md:block lg:block">
+          <h1 className="text-xl  pl-20">Explore</h1>
+        </div>
+      </div>
+
+      <div className="ml-5  py-8 rounded-xl flex hover:scale-110 duration-300 hover:bg-slate-200">
+        <div className="px-2 mt-2">
+          <CgProfile className="scale-150" />
+        </div>
+        <div className="hidden md:block lg:block">
+          <h1 className="text-xl  pl-20">Notification</h1>
+        </div>
+      </div>
+
+      <div className="ml-5  py-8  rounded-xl flex  hover:scale-110 duration-300 hover:bg-slate-200">
+        <div className="px-2 mt-2">
+          <BsChatSquareText className="scale-150" />
+        </div>
+        <div className="hidden md:block lg:block">
+          <h1 className="text-xl pl-20 ">Chat</h1>
+        </div>
+      </div>
+
+      <div className="ml-5  py-8   rounded-xl flex  hover:scale-110 duration-300 hover:bg-slate-200">
+        <div className="px-2 mt-2">
+          <CgProfile className="scale-150" />
+        </div>
+        <div className="hidden md:block lg:block">
+          <h1 className="text-xl  pl-20">Profile</h1>
+        </div>
+      </div>
+
+      <div className="ml-5 screen-container py-6 sm:mt-10 md:mt-0 lg:mt-0 rounded-xl flex  hover:scale-110 duration-300 hover:bg-slate-200" onClick={()=>setShowMore(!showMore)}>
+        <div className="px-2">
+          <CgDetailsMore className="scale-150 text-gray-500" />
+        </div>
+        <div className="hidden md:block lg:block">
+          <p className="pl-20 text-gray-500">more</p>
+        </div>
+      </div>
+      {/* overlay */}
+      {showMore ? <div className="  h-screen bg-black/50 w-screen z-10 absolute"></div> : <div>  </div>}
+     
+
+      {/* moreContainer */}
+      {showMore ? <div className=" screen-container flex flex-col absolute z-10 bg-slate-50 rounded-xl  bottom-16 left-4 lg:w-[300px] ">
+         <div className='h-6 cursor-pointer ' onClick={()=>setShowMore(!showMore)}>
+         <div className="flex pl-6 mt-2 hover:scale-105 duration-300">
+            <IoMdArrowRoundBack className="scale-125" />
+            <p className="pl-20 text-gray-500 hidden lg:block ">Go back</p>
+          </div>
+          
+          </div>
+
+
+        <div className="ml-5 mt-2  py-8  rounded-xl flex   hover:scale-110 duration-300 hover:bg-slate-200">
+          <div className="px-2 mt-2">
+            <FiSettings className="scale-150" />
+          </div>
+          <div>
+            <h1 className="text-xl md:pl-10 lg:pl-20 md:pr-5">Settings</h1>
+          </div>
+        </div>
+
+        <div className="ml-5  py-8  rounded-xl flex   hover:scale-110 duration-300 hover:bg-slate-200">
+          <div className="px-2 mt-2">
+            <BiLogOut className="scale-150" />
+          </div>
+          <div>
+            <h1 className="text-xl md:pl-10 lg:pl-20 text-red-500 md:pr-5">Log Out</h1>
+          </div>
+        </div>
+      </div>:<div></div>}
       
     </div>
   );
