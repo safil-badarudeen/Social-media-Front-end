@@ -1,0 +1,95 @@
+.ChatContainerMainContainer {
+  width: 55pc;
+  height: 88vh;
+  margin-top: 20px;
+  background-color: rgba(230, 225, 219, 0.329);
+  border-radius: 15px;
+  position: relative;
+}
+
+.ChatContainerProfilePic {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  margin-left: 25px;
+}
+
+.chatContainerName {
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 25px;
+}
+
+.imageNameChatContainer {
+  display: flex;
+  height: 55px;
+  width: 55pc;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.134);
+  position: relative;
+  border-radius: 15px;
+}
+
+.conversationContainer{
+    margin-top:20px;
+    margin:30px;
+    
+    height: 27pc;
+    overflow-y: auto;
+ 
+}
+
+.messageProfielPic{
+    height:45px;
+    width:45px;
+    border-radius: 50%;
+}
+
+.messageContainer{
+    display:flex;
+}
+
+.message{
+    margin-left: 25px;
+    background-color: turquoise;
+    padding:5px;
+    padding-left:15px;
+    border-radius: 10px;
+}
+
+.sendingMessageContainer{
+    margin-top:20px;
+    margin-left:180px;
+}
+
+.messageInputContainer {
+  position: absolute;
+  bottom: 25px;
+  width: 90%;
+  margin-left: 25px;
+  display:flex;
+}
+
+.messageInput {
+  width: 80%;
+  height: 100%;
+  border-radius: 15px;
+  border: none;
+  height:40px;
+}
+
+
+.sendButton{
+    margin-left: 55px;
+    background-color: black;
+    border-radius: 15px;
+    width:85px;
+    color:white;
+    cursor:pointer;
+    transition: 0.3s;
+    
+}
+
+.sendButton:hover{
+    background-color: rgba(73, 71, 71, 0.459);
+}

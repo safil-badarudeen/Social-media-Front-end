@@ -1,0 +1,58 @@
+.Leftbar{
+    flex:1;
+    /* margin-left:50px; */
+    /* position:fixed; */
+    position:relative;
+    
+}
+
+.NotificationContainer{
+    position:fixed;
+    width:18pc;
+    height:60vh;
+    background-color: white;
+    border-radius:20px;
+    margin-top: 20px;
+    border-top:20px;
+    overflow-y:auto;
+}
+
+.NotificationImage{
+    width:37px;
+    height: 37px;
+    border-radius:50px;
+    margin-left: 10px;
+}
+
+.FollowingUserImage{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    margin-left:8px;
+}
+
+.LikedImage{
+    width:30px;
+    height:30px;
+    margin-left: 8px;
+    border-radius:3px;
+}
+
+.ExploreContainer{
+    width:18pc;
+    height:60vh;
+    background-color: white;
+    border-radius:20px;
+    margin-top: 20px;
+    border-top:20px;
+    overflow-y:auto;
+}
+
+.ExploreImage{
+    width:80px ;
+    height:80px;
+    object-fit: cover;
+    margin-top:6px;
+    margin-left:10px;
+    border-radius: 9%;
+}

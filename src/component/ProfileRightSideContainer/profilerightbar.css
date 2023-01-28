@@ -1,0 +1,49 @@
+.ProfileRightBar {
+  flex: 1;
+  /* margin-right:50px; */
+}
+
+.HabitiansRequestContainer {
+  width: 18pc;
+  height: 40vh;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 20px;
+  border-top: 20px;
+  overflow-y: auto;
+}
+
+.RequestTapProfilePic {
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+  border-radius: 11px;
+}
+
+.followerName {
+  text-align: "center";
+  margin-left: "25px";
+  margin-right: 10;
+}
+
+.AcceptDenyButton {
+  background-color: black;
+  color: white;
+  padding: 3px 20px;
+  margin-top: 5px;
+  border-radius: 15px;
+}
+
+.profileRightContainer2 {
+    width: 18pc;
+  height: 50vh;
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 15px;
+  overflow-y: auto;
+}
+
+.profilesuggestionheading {
+  text-align: "start";
+  margin-left: "20px";
+}

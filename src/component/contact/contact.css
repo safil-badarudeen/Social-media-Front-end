@@ -1,0 +1,77 @@
+.mainContactContainer{
+  
+   
+    background-color:black;
+    opacity:15;
+    height:88vh;
+    margin:20px;
+    border-radius:15px;
+}
+.OpeningContainer{
+    flex:1;
+  display:flex;
+  margin-left:120px
+}
+
+
+.contactSearchBarContainer{
+    width:17pc;
+    margin:20px;
+}
+
+.searchForcontact{
+    width:20px;
+    height:5vh;
+    border-radius:30px;
+    border:none;
+
+}
+
+.ContactUserContainer{
+    display:flex;
+    margin-top:15px;
+    background-color:gray;
+    margin-left:15px;
+    margin-right:15px;
+    border-radius:20px;
+
+}
+.UserNameText{
+    color:white;
+    text-align: start;
+    margin-top:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.OpenText{
+    color:white;
+    text-align: start;
+    margin-top:-20px;
+    font-size:12px;
+}
+
+.chatUserImage{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-left:15px;
+    margin-top:8px
+}
+
+.ContactNameText{
+    margin-left:20px
+}
+
+.openConversation{
+    display:flex;
+    align-items: center;
+    margin-left:300px;
+}
+
+.openConversationText{
+    color:rgba(41, 40, 39, 0.27);
+    font-size:45px;
+   
+}
