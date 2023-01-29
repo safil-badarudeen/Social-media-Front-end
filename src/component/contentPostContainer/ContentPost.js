@@ -2,9 +2,6 @@ import React, { useState } from "react";
 
 import app from "../../firebase";
 import profileimage from "../images/profilePic.jpg";
-import imageIcon from "../images/imageIcon.png";
-import videoIcon from "../images/videoIcon.png";
-import emojiIcon from "../images/emojiIcon.png";
 import { BsFillImageFill } from "react-icons/bs";
 import { RiVideoFill } from "react-icons/ri";
 import "./contentPost.css";
@@ -167,19 +164,20 @@ function ContentPost() {
         </div>
       </div>
 
-      <div className="py-10 ml-12">
+      <div className="ml-12 mt-12 h-fit flex justify-center">
         {imagePre !== null ? (
-          <img className="imagePre" src={imagePre} />
+          <img className="h-40 rounded-lg" src={imagePre} />
         ) : videoPre !== null ? (
           <video className="imagePre" src={videoPre}></video>
         ) : (
           ""
         )}
+        </div>
 
         <div className="flex relative cursor-pointer ">
         
             <label htmlFor="file">
-              <BsFillImageFill size={30} className="mt-8" />
+              <BsFillImageFill size={30} className={ imagePre !== null ?"ml-3  " :"mt-8 ml-8 mb-5" } />
               <input
                 type="file"
                 name="file"
@@ -193,7 +191,7 @@ function ContentPost() {
             </label>
 
             <label htmlFor="file2">
-              <RiVideoFill className="mt-7 ml-9" size={35} />
+              <RiVideoFill className={imagePre !== null ? "ml-6 mb-1" :"mt-7 ml-9"} size={35} />
 
               <input
                 type="file"
@@ -207,14 +205,12 @@ function ContentPost() {
               />
             </label>
           
-
-          
-            <button className="absolute right-3 mt-8 bg-black text-white px-6 py-2 border-solid border-black border-2 rounded-lg hover:bg-transparent hover:text-black" onClick={handlePost}>
+            <button  className={imagePre !== null ? "absolute right-4 bottom-5 bg-black text-white px-6 py-2 border-solid border-black border-2 rounded-lg hover:bg-transparent hover:text-black" :"absolute right-3 mt-8 bg-black text-white px-6 py-2 border-solid border-black border-2 rounded-lg hover:bg-transparent hover:text-black"} onClick={handlePost}>
               Post
             </button>
           
         </div>
-      </div>
+      
     </div>
   );
 }
