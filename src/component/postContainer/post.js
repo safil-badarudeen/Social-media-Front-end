@@ -3,7 +3,7 @@ import profilePicture from "../images/profilePic.jpg";
 import commentIcon from "../images/commentIcon.png";
 import blackHeart from "../images/heartIcon.png";
 import redHeart from "../images/anotherHeart.png";
-// import "./post.css";
+import "./post.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -97,33 +97,28 @@ function Post({ post }) {
   };
 
   return (
-    <div  className=" ml-[200px]">
-      <div >
-        <div >
+    <div  className="bg-white rounded-xl ml-[60px] sm:ml-[100px] md:ml-[300px]  lg:ml-[350px] mt-[10px] md:w-[500px] lg:w-[700px] transition-all duration-200rounded-xl">
+      <div className=''>
+        <div className='flex pt-5 mt-5'>
           <img
             src={loggedInUser?.other?.profile}
-            className="PostProfileImage"
+            className="rounded-full ml-10"
             alt=""
           ></img>
-          <div>
+          <div className='font-bold ml-8 mt-3 text-[18px]'>
             <Link to={`/profile/userprofile/${user?._id}`}>
-              <p
-                style={{
-                  marginLeft: "15px",
-                  fontWeight: "bold",
-                  textAlign: "start",
-                }}
-              >
+             
                 {user.username}
-              </p>
+             
             </Link>
           </div>
         </div>
         <p className="postTitle">{post.title}</p>
 
         {/* diplay image and video alternatively*/}
+        <div className="flex justify-center">
         {post.image !== "" ? (
-          <img src={`${post.image}`} className="PostImage" alt="" />
+          <img src={`${post.image}`} className="w-4/5 h-[500px] m-5 rounded-lg object-cover" alt="" />
         ) : post.video !== "" ? (
           <video className="PostImage" width="500" height="500" controls>
             <source src={`${post.video}`} type="video/mp4" />
@@ -131,8 +126,9 @@ function Post({ post }) {
         ) : (
           ""
         )}
+        </div>
 
-        <div style={{ display: "flex" }}>
+        <div className="flex pb-5 pt-3">
           <div
             style={{ display: "flex", marginLeft: "40px", cursor: "pointer" }}
           >
@@ -145,7 +141,7 @@ function Post({ post }) {
               />
               <p style={{ marginLeft: "10px" }}> {Count} likes</p>
             </div>
-            <div className="commentIconDiv">
+            <div className="commentIconDiv ">
               <img
                 src={`${commentIcon}`}
                 onClick={() => setShowComment(!ShowComment)}
@@ -158,8 +154,8 @@ function Post({ post }) {
         </div>
 
         {ShowComment === true ? (
-          <div style={{ display: "grid" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="grid pb-10">
+            <div style={{ display: "flex", alignItems:"center" }}>
               <img
                 src={loggedInUser?.other?.profile}
                 className="CommentProfileImage"
@@ -180,7 +176,7 @@ function Post({ post }) {
             {Comments.map((items) => {
               return (
                 <div>
-                  <div style={{ display: "flex" }}>
+                  <div className="flex ">
                     <img
                       src={loggedInUser?.data?.profile}
                       className="CommentProfileImage"
