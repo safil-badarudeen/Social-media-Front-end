@@ -7,7 +7,7 @@ import Verifyemail from "./pages/verifyEmail/verifyEmail";
 import Chat from './pages/Chat/Chat'
 import UserProfile from "./pages/UserProfile/UserProfile"
 import NotFound from "./component/NotFound/NotFound";
-import Explore from "./component/Explore/Explore"
+import ExplorePage from "./pages/Explore/Explore"
 import Search from "./component/Search/Search"
 
 
@@ -29,7 +29,7 @@ function App() {
           <Route path="/verify/email" element={<Verifyemail />} />
           <Route path="/chat" element={<Chat />} />
           <Route path ="/profile/userprofile/:userId" element={<UserProfile />} />
-          <Route path = "/explore" element={<Explore />} />
+          <Route path = "/explore" element={<ExplorePage />} />
           <Route path="*" element={<NotFound/>}/>
           <Route path="/search" element={<Search/>}/>
         </Routes>

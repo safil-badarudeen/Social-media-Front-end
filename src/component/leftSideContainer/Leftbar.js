@@ -115,7 +115,8 @@ function Leftbar() {
             <h1 className="text-xl md:pl-10 lg:pl-20 md:pr-5">Settings</h1>
           </div>
         </div>
-
+        
+        
         <div className="ml-5  py-8  rounded-xl flex   hover:scale-110 duration-300 hover:bg-slate-200">
           <div className="px-2 mt-2">
             <BiLogOut className="scale-150" />
