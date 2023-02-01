@@ -49,7 +49,7 @@ function Follow({ userdetails }) {
             </Link>
 
             <div className="w-24 h-6  rounded-md ">
-            <button type="button" onClick={(e) => [handleRequest(userdetails._id),setFollowing(!following)]} className="inline-block px-6 py-2  text-blue-400 font-medium text-xs leading-tight uppercase rounded ml-[-30px]  hover:scale-125 transition duration-300 text-[20px]">{following ? "Unfollow" : "follow"}</button>
+            <button type="button" onClick={(e) => [handleRequest(userdetails._id),setFollowing(!following)]} className="inline-block px-6 py-2  text-blue-400 font-medium text-[15px] leading-tight uppercase rounded ml-[-30px]  hover:scale-125 transition duration-300">{following ? "Unfollow" : "follow"}</button>
             </div>
           </div>
         </div>

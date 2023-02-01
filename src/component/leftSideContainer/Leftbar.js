@@ -36,7 +36,8 @@ function Leftbar() {
           </div>
         </div>
       </Link>
-
+     
+     <Link to="/search">
       <div className="ml-5  py-8   rounded-xl flex   hover:scale-110 duration-300 hover:bg-slate-200">
         <div className="px-2 mt-2">
           <BiSearchAlt className="scale-150" />
@@ -45,6 +46,7 @@ function Leftbar() {
           <h1 className="text-xl pl-20">Search</h1>
         </div>
       </div>
+      </Link>
 
       <div className="ml-5  py-8 rounded-xl flex hover:scale-110 duration-300 hover:bg-slate-200">
         <div className=" px-2 mt-2">
@@ -95,7 +97,7 @@ function Leftbar() {
      
 
       {/* moreContainer */}
-      {showMore ? <div className=" screen-container flex flex-col absolute z-10 bg-slate-50 rounded-xl  bottom-16 left-4 lg:w-[300px] ">
+      {showMore ? <div className="screen-container flex flex-col absolute z-10 bg-slate-50 rounded-xl  bottom-16 left-4 lg:w-[300px] ">
          <div className='h-6 cursor-pointer ' onClick={()=>setShowMore(!showMore)}>
          <div className="flex pl-6 mt-2 hover:scale-105 duration-300">
             <IoMdArrowRoundBack className="scale-125" />

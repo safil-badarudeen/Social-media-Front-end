@@ -8,10 +8,12 @@ import Chat from './pages/Chat/Chat'
 import UserProfile from "./pages/UserProfile/UserProfile"
 import NotFound from "./component/NotFound/NotFound";
 import Explore from "./component/Explore/Explore"
+import Search from "./component/Search/Search"
 
 
 import { BrowserRouter, Routes, Route ,Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BiSearch } from "react-icons/bi";
 
 function App() {
   const userDetails = useSelector((state)=>state.user);
@@ -29,7 +31,7 @@ function App() {
           <Route path ="/profile/userprofile/:userId" element={<UserProfile />} />
           <Route path = "/explore" element={<Explore />} />
           <Route path="*" element={<NotFound/>}/>
-          
+          <Route path="/search" element={<Search/>}/>
         </Routes>
       </BrowserRouter>
     </div>   //user !== null ? <Navigate to={"/"}/> : 
