@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../component/Navbar/Navbar'
-import ProfileLeftbar from '../../component/ProfileLeftSideContainer/ProfileLeftbar'
+import Profile from '../../component/Profile/Profile'
 import ProfileRightBar from '../../component/ProfileRightSideContainer/ProfileRightBar'
 import ProfileMainPost from '../../component/ProfileMainPostContainer/ProfileMainPost'
 import { useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import './profile.css'
 
 
-function Profile() {
+function ProfilePage() {
   const userDetails = useSelector ((state)=>state.user)
   const user=userDetails.user;
    let id = user.other._id;
@@ -17,11 +17,9 @@ function Profile() {
     <div className='ProfileContainer'>
      <Navbar/>
      <div  className='ComponentContainer'>
-    <ProfileLeftbar/>
-    <ProfileMainPost/>
-    <ProfileRightBar/>
+      <Profile/>
+   
     </div>
-
     </div>
   )
 }

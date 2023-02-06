@@ -53,22 +53,7 @@ function ProfileRightBar() {
 
   return (
     <div className="ProfileRightBar">
-      <div className="HabitiansRequestContainer">
-        <p style={{ fontWeight: "bold" }}>Followers</p>
-
-        {followerUser.map((item) => (
-          <div style={{ marginTop: 15 }}>
-            <div style={{ display: "flex", marginTop: 1 }}>
-              <img
-                src={item.profile}
-                className="RequestTapProfilePic"
-                alt=""
-              ></img>
-              <p className="followerName">{item.username}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+   
 
       {/* profile Right side bottom container
      ------------------------------- */}

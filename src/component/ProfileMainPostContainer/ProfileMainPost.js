@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ContentPost from "../contentPostContainer/ContentPost";
 import CoverImage from "../../component/images/coverimagejpg.jpg";
-import { ProfilePost } from "../ProfilePostContainer/ProfilePost";
+
 
 import "./profilemainPost.css";
 import axios from "axios";
@@ -26,15 +26,9 @@ function ProfileMainPost() {
   }, []);
 
   return (
-    <div className="ProfileMainPostContainer">
-      <div className="ProfileCoverImageContainer">
-        <img src={`${CoverImage}`} className="coverImage" alt="" />
-        <h3 className="profilemainh3style">Your Profile</h3>
-      </div>
-      <ContentPost />
-      {post.map((item) => (
-        <ProfilePost posts={item} />
-      ))}
+    
+     <div>
+     
     </div>
   );
 }
