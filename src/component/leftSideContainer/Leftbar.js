@@ -9,9 +9,14 @@ import { FiSettings } from "react-icons/fi";
 import { CgDetailsMore } from "react-icons/cg";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function Leftbar() {
   const [showMore, setShowMore] = useState(false);
+  const userDetails = useSelector((state) => state.user);
+  const user = userDetails.user;
+  let id = user?.other?._id;
+  const accesstoken = user?.accessToken;
  
 
  
@@ -74,7 +79,8 @@ function Leftbar() {
           <h1 className="text-xl pl-20 ">Chat</h1>
         </div>
       </div>
-
+       
+       <Link to={`/profile/${id}`}>
       <div className="ml-5  py-8   rounded-xl flex  hover:scale-110 duration-300 hover:bg-slate-200">
         <div className="px-2 mt-2">
           <CgProfile className="scale-150" />
@@ -83,6 +89,7 @@ function Leftbar() {
           <h1 className="text-xl  pl-20">Profile</h1>
         </div>
       </div>
+      </Link>
 
       <div className="ml-5 screen-container py-6 sm:mt-10 md:mt-0 lg:mt-0 rounded-xl flex  hover:scale-110 duration-300 hover:bg-slate-200" onClick={()=>setShowMore(!showMore)}>
         <div className="px-2">
@@ -116,7 +123,7 @@ function Leftbar() {
           </div>
         </div>
         
-        
+
         <div className="ml-5  py-8  rounded-xl flex   hover:scale-110 duration-300 hover:bg-slate-200">
           <div className="px-2 mt-2">
             <BiLogOut className="scale-150" />
