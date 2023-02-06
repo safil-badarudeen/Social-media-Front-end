@@ -3,6 +3,7 @@ import profileimage from "../images/profilePic.jpg";
 import {useParams} from 'react-router-dom'
 
 
+
 import "./friendprofile.css";
 import axios from "axios";
 

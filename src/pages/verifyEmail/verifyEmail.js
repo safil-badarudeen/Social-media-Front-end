@@ -10,7 +10,7 @@ export default function Verifyemail() {
  
   const userDetails = user?.user;
   const id = userDetails?.user
-   console.log('id just under the ' , id)
+   
   // console.log(userDetails)
 
   const handleOTP = (e)=>{

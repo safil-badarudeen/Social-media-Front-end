@@ -4,6 +4,7 @@ import commentIcon from "../images/commentIcon.png";
 import blackHeart from "../images/heartIcon.png";
 import redHeart from "../images/anotherHeart.png";
 import shareIcon from "../images/shareIcon.png";
+import {Link} from 'react-router-dom'
 import axios from "axios";
 import './friendprofilepost.css'
 import { useSelector } from "react-redux";
@@ -22,7 +23,7 @@ function FriendProfilePost({posts}) {
       try {
         //backend userDetails route
         const response = await axios.get(
-          `http://localhost:5000/api/user/userdetails/${posts.user}`,
+          `http://localhost:5000/api/user/userdetails/${posts?.user}`,
           {
             headers: {
               token: accesstoken,
@@ -95,137 +96,115 @@ function FriendProfilePost({posts}) {
   
 
   return (
-    <div className="FriendProfilePostContainer">
-      <div className="FriendProfilePostSubPostContainer">
-        <div style={{ display: "flex", marginLeft: "30px" }}>
-          <img
-            src={`${profilePicture}`}
-            className="PostProfileImage"
-            alt=""
-          ></img>
-          <div>
-            <p
-              style={{
-                marginLeft: "15px",
-                fontWeight: "bold",
-                textAlign: "start",
-              }}
-            >
-              {user?.username}
-            </p>
-            
-          </div>
+    <div  className="bg-white rounded-xl  sm:ml-[100px] md:ml-[300px]  lg:ml-[450px] mt-[10px] md:w-[500px] lg:w-[700px] transition-all duration-200rounded-xl">
+    <div className=''>
+      <div className='flex pt-5 mt-5'>
+        <img
+          src={loggedInUser?.other?.profile}
+          className="rounded-full ml-10"
+          alt=""
+        ></img>
+        <div className='font-bold ml-8 mt-3 text-[18px]'>
+          <Link to={`/profile/userprofile/${user?._id}`}>
+           
+              {user.username}
+           
+          </Link>
         </div>
-        <p
-          style={{
-            width: "95%",
-            textAlign: "left",
-            margin: "auto",
-            marginTop: "10px",
-            marginLeft: "40px",
-          }}
-        >
-          {posts.title}
-        </p>
-        <img src={posts?.image} className="PostImage" alt="" />
-        <div style={{ display: "flex" }}>
-          <div
-            style={{ display: "flex", marginLeft: "40px", cursor: "pointer" }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src={Like}
-                onClick={handleLike}
-                className="LikeAndComment"
-                alt=""
-              />
-              <p style={{ marginLeft: "10px" }}> {Count} likes</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
-              <img
-                src={`${commentIcon}`}
-                onClick={()=>setShowComment(!ShowComment)}
-                className="LikeAndComment"
-                alt=""
-              />
-              <p style={{ marginLeft: "10px" }}>
-                {posts?.comments?.length} comments
-              </p>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "150px",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-          >
-            <img src={`${shareIcon}`} className="LikeAndComment" alt="" />
-            <p style={{ marginLeft: "10px" }}>share</p>
-          </div>
-        </div>
-
-        {ShowComment === true ? (
-          <div style={{ display: "grid" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src={`${profilePicture}`}
-                className="CommentProfileImage"
-                alt=""
-              ></img>
-              {/* <p style={{marginLeft:10}}>Safil</p> */}
-              <input
-                className="CommentInput"
-                placeholder="Write your thoughts.."
-                onChange={(e) => setCommentWriting(e.target.value)}
-                type="text"
-              />
-              <button className="AddCommentButton" onClick={handleComment}>
-                Comment
-              </button>
-            </div>
-
-            {Comments.map((items) => {
-              return (
-                <div>
-                  <div style={{ display: "flex" }}>
-                    <img
-                      src={loggedInUser?.data?.profile}
-                      className="CommentProfileImage"
-                      alt=""
-                    ></img>
-                    <p style={{ marginLeft: 10, fontWeight: "bold" }}>
-                      {items?.username}
-                    </p>
-                  </div>
-                  <div style={{ marginLeft: 100, marginTop: -30 }}>
-                    <p
-                      style={{
-                        marginLeft: 10,
-                        textAlign: "left",
-                        fontSize: 15,
-                      }}
-                    >
-                      {items?.comment}
-                    </p>
-                   
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div></div>
-        )}
       </div>
+      <p className="postTitle">{posts?.title}</p>
+
+      {/* diplay image and video alternatively*/}
+      <div className="flex justify-center">
+      {posts?.image !== "" ? (
+        <img src={`${posts?.image}`} className="w-4/5 h-[500px] m-5 rounded-lg object-cover" alt="" />
+      ) : posts?.video !== "" ? (
+        <video className="PostImage" width="500" height="500" controls>
+          <source src={`${posts?.video}`} type="video/mp4" />
+        </video>
+      ) : (
+        ""
+      )}
+      </div>
+
+      <div className="flex pb-5 pt-3">
+        <div
+          style={{ display: "flex", marginLeft: "40px", cursor: "pointer" }}
+        >
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={`${Like}`}
+              onClick={handleLike}
+              className="LikeAndComment"
+              alt=""
+            />
+            <p style={{ marginLeft: "10px" }}> {Count} likes</p>
+          </div>
+          <div className="commentIconDiv ">
+            <img
+              src={`${commentIcon}`}
+              onClick={() => setShowComment(!ShowComment)}
+              className="LikeAndComment"
+              alt=""
+            />
+            <p style={{ marginLeft: "10px" }}>{Comments.length} comments</p>
+          </div>
+        </div>
+      </div>
+
+      {ShowComment === true ? (
+        <div className="grid pb-10">
+          <div style={{ display: "flex", alignItems:"center" }}>
+            <img
+              src={loggedInUser?.other?.profile}
+              className="CommentProfileImage"
+              alt=""
+            ></img>
+            {/* <p style={{marginLeft:10}}>Safil</p> */}
+            <input
+              className="CommentInput"
+              placeholder="Write your thoughts.."
+              onChange={(e) => setCommentWriting(e.target.value)}
+              type="text"
+            />
+            <button className="AddCommentButton" onClick={handleComment}>
+              Comment
+            </button>
+          </div>
+
+          {Comments.map((items) => {
+            return (
+              <div>
+                <div className="flex ">
+                  <img
+                    src={loggedInUser?.data?.profile}
+                    className="CommentProfileImage"
+                    alt=""
+                  ></img>
+                  <p style={{ marginLeft: 10, fontWeight: "bold" }}>
+                    {items.username}
+                  </p>
+                </div>
+                <div style={{ marginLeft: 100, marginTop: -30 }}>
+                  <p
+                    style={{
+                      marginLeft: 10,
+                      textAlign: "left",
+                      fontSize: 15,
+                    }}
+                  >
+                    {items.comment}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
+  </div>
   );
 }
 

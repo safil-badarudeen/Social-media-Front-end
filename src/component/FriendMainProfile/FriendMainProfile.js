@@ -34,7 +34,7 @@ function FriendMainProfile() {
 
       {posts.map((item)=>{
 
-        return   <FriendProfilePost posts={item} />
+        return <FriendProfilePost posts={item} />
       })}
     
     </div>
