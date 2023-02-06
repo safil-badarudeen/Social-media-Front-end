@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../component/Navbar/Navbar'
 import Profile from '../../component/Profile/Profile'
 import ProfileRightBar from '../../component/ProfileRightSideContainer/ProfileRightBar'
-import ProfileMainPost from '../../component/ProfileMainPostContainer/ProfileMainPost'
+
 import { useSelector } from 'react-redux';
 
 import './profile.css'
@@ -24,4 +24,4 @@ function ProfilePage() {
   )
 }
 
-export default Profile
+export default ProfilePage
