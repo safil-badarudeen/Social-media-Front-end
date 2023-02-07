@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Post({ post }) {
-  console.log(post?.like?.length);
+  
   // user logged in from global state
   const userDetails = useSelector((state) => state.user);
   const loggedInUser = userDetails.user;

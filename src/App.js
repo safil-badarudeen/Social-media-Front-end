@@ -10,6 +10,7 @@ import NotFound from "./component/NotFound/NotFound";
 import ExplorePage from "./pages/Explore/Explore"
 import Search from "./component/Search/Search"
 import Followers from "./pages/FollowData/Followers"
+import OnePostPage from "./pages/OnePost/OnePostPage"
 
 import { BrowserRouter, Routes, Route ,Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -33,6 +34,7 @@ function App() {
           <Route path="*" element={<NotFound/>}/>
           <Route path="/search" element={<Search/>}/>
           <Route path="/followers" element={<Followers/>}/>
+          <Route path="/onePost" element={<OnePostPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>   //user !== null ? <Navigate to={"/"}/> : 
