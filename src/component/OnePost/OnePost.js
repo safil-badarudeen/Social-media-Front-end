@@ -6,11 +6,36 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function OnePost({ post }) {
+function OnePost( ) {
   const userDetails = useSelector((state) => state?.user);
   const loggedInUser = userDetails?.user;
   const userId = loggedInUser?.other?._id;
   const accesstoken = loggedInUser?.accesstoken;
+
+
+  
+  const postId="63d8e65a19c2070da9b0f3c3"
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        //backend userDetails route
+        const response = await axios.get(
+          `http://localhost:5000/api/post/user/getOnePost/${postId}`
+        );
+        // console.log(response)
+        setPost(response.data);
+        console.log(post[0]._id)
+      } catch (error) {
+        console.log("error on response", error);
+      }
+    };
+    getPost();
+  }, [postId]);
+
+  const [post, setPost] = useState();
+  const [postUser,setPostUser] = useState(post?.user);
+  console.log(postUser)
+  // console.log(post?._id)
 
   const [CommentWriting, setCommentWriting] = useState("");
 
@@ -21,44 +46,44 @@ function OnePost({ post }) {
     post?.like?.includes(userId) ? redHeart : blackHeart
   );
   const [Count, setCount] = useState(post?.like?.length);
-
+  //  console.log("Count", Count)
   const [Comments, setComments] = useState(post?.comments);
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        console.log("before", post.user);
-        //backend userDetails route
-        if (post?.user !== undefined) {
-          const response = await axios.get(
-            `http://localhost:5000/api/user/userdetails/${post?.user}`
-          );
-          console.log("after", post.user);
-          setUser(response.data);
-        }else {
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     try {
+  //       console.log("before", post.user);
+  //       //backend userDetails route
+  //       if (post?.user !== undefined) {
+  //         const response = await axios.get(
+  //           `http://localhost:5000/api/user/userdetails/${post?.user}`
+  //         );
+  //         console.log("after", post.user);
+  //         setUser(response.data);
+  //       }else {
 
-          console.log("waiting for data inside post?.user")
-        }
-      } catch (error) {
-        console.log("error on response", error);
-      }
-    };
-    setTimeout(() => {
-      getUser();
-    }, 1000);
+  //         console.log("waiting for data inside post?.user")
+  //       }
+  //     } catch (error) {
+  //       console.log("error on response", error);
+  //     }
+  //   };
+  //   setTimeout(() => {
+  //     getUser();
+  //   }, 1000);
 
-    return () => {
-      clearTimeout();
-    };
-  }, [post?.user]);
+  //   return () => {
+  //     clearTimeout();
+  //   };
+  // }, [post?.user]);
 
-  console.log(post._id);
-  console.log("userId for liek", typeof userId);
+  // console.log(post._id);
+  // console.log("userId for liek", typeof userId);
 
   const handleLike = async () => {
     Like === blackHeart ? setLike(redHeart) : setLike(blackHeart);
-    Like === blackHeart ? setCount(Count + 1) : setCount(Count - 1);
+    Like === blackHeart ? setCount(Count + 1) : setCount(Count -1);
 
     await axios.put(
       `http://localhost:5000/api/post/${post?._id}/like`,
@@ -107,13 +132,13 @@ function OnePost({ post }) {
         <div className="">
           <div className="flex  mt-2">
             <img
-              src={user?.profile}
+              src={post?.user?.profile}
               className="rounded-full ml-10 h-[50px] w-[50px]"
               alt=""
             ></img>
             <div className="font-semibold ml-8 mt-3 text-[18px]">
-              <Link to={`/profile/userprofile/${user?._id}`}>
-                {user.username}
+              <Link to={`/profile/userprofile/${post?.user?._id}`}>
+                {post?.user?.username}
               </Link>
             </div>
           </div>

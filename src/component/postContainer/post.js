@@ -11,18 +11,18 @@ import { Link } from "react-router-dom";
 function Post({ post }) {
   
   // user logged in from global state
-  const userDetails = useSelector((state) => state.user);
-  const loggedInUser = userDetails.user;
-  const accesstoken = loggedInUser.accessToken;
+  const userDetails = useSelector((state) => state?.user);
+  const loggedInUser = userDetails?.user;
+  const accesstoken = loggedInUser?.accessToken;
 
-  const userId = loggedInUser.other._id;
+  const userId = loggedInUser?.other?._id;
 
   useEffect(() => {
     const getUser = async () => {
       try {
         //backend userDetails route
         const response = await axios.get(
-          `http://localhost:5000/api/user/userdetails/${post.user}`,
+          `http://localhost:5000/api/user/userdetails/${post?.user}`,
           {
             headers: {
               token: accesstoken,
@@ -35,7 +35,7 @@ function Post({ post }) {
       }
     };
     getUser();
-  }, [post.user]);
+  }, [post?.user]);
 
   const [Like, setLike] = useState(
     post.like.includes(userId) ? redHeart : blackHeart,
