@@ -22,9 +22,16 @@ function OnePost( ) {
         const response = await axios.get(
           `http://localhost:5000/api/post/user/getOnePost/${postId}`
         );
+        
+        // if (response.data[0]) {
+        //   setPost(response[0].user?._id);
+        // } else {
+        //   setUserId(null);
+        // }
+      
         // console.log(response)
         setPost(response.data);
-        console.log(post[0]._id)
+       console.log(response.data)
       } catch (error) {
         console.log("error on response", error);
       }
@@ -34,8 +41,10 @@ function OnePost( ) {
 
   const [post, setPost] = useState();
   const [postUser,setPostUser] = useState(post?.user);
-  console.log(postUser)
-  // console.log(post?._id)
+   
+  // console.log(post)
+  // console.log("post Like ",post?.like?.length)
+  // console.log("postcommet" ,typeof post?.comments)
 
   const [CommentWriting, setCommentWriting] = useState("");
 
@@ -49,7 +58,13 @@ function OnePost( ) {
   //  console.log("Count", Count)
   const [Comments, setComments] = useState(post?.comments);
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);
+  // console.log(post?.comments) 
+  // console.log(typeof Comments)
+  // console.log("postlike",post?.like?.length)
 
+  const commentArray = Comments ? Object?.values(Comments):[]
+  console.log("commentArray",typeof commentArray)
+  // console.log(typeof commentArray)
   // useEffect(() => {
   //   const getUser = async () => {
   //     try {
@@ -128,7 +143,7 @@ function OnePost( ) {
 
   return (
     <div className="bg-black/50 min-h-screen flex ">
-      <div className="bg-white min-h-[625px]  ml-[60px] sm:ml-[100px] md:ml-[300px]  lg:ml-[350px] mt-[10px] md:w-[500px] lg:w-[700px] transition-all duration-200 rounded-xl">
+      <div className="bg-white min-h-[615px]  ml-[60px] sm:ml-[100px] md:ml-[300px]  lg:ml-[350px] mt-[10px] md:w-[500px] lg:w-[700px] transition-all duration-200 rounded-xl">
         <div className="">
           <div className="flex  mt-2">
             <img
@@ -161,7 +176,7 @@ function OnePost( ) {
             )}
           </div>
 
-          <div className="flex  pt-3">
+          <div className="flex ">
             <div
               style={{ display: "flex", marginLeft: "40px", cursor: "pointer" }}
             >
@@ -207,6 +222,7 @@ function OnePost( ) {
               </div>
 
               {Comments.map((items) => {
+                console.log("items",items)
                 return (
                   <div>
                     <div className="flex ">

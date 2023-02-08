@@ -46,7 +46,7 @@ function Post({ post }) {
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);
   const [ShowComment, setShowComment] = useState(false);
   const [user, setUser] = useState([]);
-  
+  console.log(typeof Comments)
 
   const handleLike = async () => {
        
@@ -101,10 +101,10 @@ function Post({ post }) {
       <div className=''>
         <div className='flex pt-5 mt-5'>
           <img
-            src={loggedInUser?.other?.profile}
-            className="rounded-full ml-10"
-            alt=""
-          ></img>
+            src={user?.profile}
+            className="rounded-full ml-10 h-[50px] w-[50px]"
+            alt="">
+          </img>
           <div className='font-bold ml-8 mt-3 text-[18px]'>
             <Link to={`/profile/userprofile/${user?._id}`}>
              
