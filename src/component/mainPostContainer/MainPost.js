@@ -13,6 +13,7 @@ function MainPost() {
 
 
   const [post, setPost] = useState([]);
+  console.log(typeof post)
   useEffect(() => {
     const getPost = async () => {
       try {
@@ -33,8 +34,8 @@ function MainPost() {
   return (
     <div >
       <ContentPost />
-      {post.map((items) => (
-        <Post post={items} />
+      {post.map((items , index) => (
+        <Post index={items._id} post={items} />
       ))}
     </div>
   );

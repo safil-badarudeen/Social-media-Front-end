@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import profilePicture from "../images/profilePic.jpg";
 import commentIcon from "../images/commentIcon.png";
 import blackHeart from "../images/heartIcon.png";
 import redHeart from "../images/anotherHeart.png";
@@ -42,6 +41,8 @@ function Post({ post }) {
   );
   const [Count, setCount] = useState(post?.like?.length);
   const [Comments, setComments] = useState(post?.comments);
+  console.log(post?.comments)
+  console.log("type",post?.comments)
   const [CommentWriting, setCommentWriting] = useState("");
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);
   const [ShowComment, setShowComment] = useState(false);
@@ -70,9 +71,9 @@ function Post({ post }) {
 
   const addComment = async () => {
     const comment = {
-      userId: `${loggedInUser.other._id}`,
-      username: `${loggedInUser.other.username}`,
-      profile: `${loggedInUser.other.profile}`,
+      userId: `${loggedInUser?.other?._id}`,
+      username: `${loggedInUser?.other?.username}`,
+      profile: `${loggedInUser?.other?.profile}`,
       title: `${CommentWriting}`,
     };
 

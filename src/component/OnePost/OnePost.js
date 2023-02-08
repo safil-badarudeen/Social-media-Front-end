@@ -50,6 +50,7 @@ function OnePost( ) {
 
   const [ShowComment, setShowComment] = useState(false);
   const [user, setUser] = useState([]);
+  
 
   const [Like, setLike] = useState(
     post?.like?.includes(userId) ? redHeart : blackHeart
@@ -57,6 +58,9 @@ function OnePost( ) {
   const [Count, setCount] = useState(post?.like?.length);
   //  console.log("Count", Count)
   const [Comments, setComments] = useState(post?.comments);
+ post?.comments.map((item)=>(
+  console.log(item)
+ ))
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);
   // console.log(post?.comments) 
   // console.log(typeof Comments)
@@ -196,7 +200,7 @@ function OnePost( ) {
                   className="LikeAndComment"
                   alt=""
                 />
-                <p style={{ marginLeft: "10px" }}>{Comments} comments</p>
+                <p style={{ marginLeft: "10px" }}>{post?.comments?.length} comments</p>
               </div>
             </div>
           </div>
@@ -221,7 +225,7 @@ function OnePost( ) {
                 </button>
               </div>
 
-              {Comments.map((items) => {
+              {post?.comments?.map((items) => {
                 console.log("items",items)
                 return (
                   <div>
