@@ -41,7 +41,7 @@ function Post({ post }) {
   );
   const [Count, setCount] = useState(post?.like?.length);
   const [Comments, setComments] = useState(post?.comments);
-  console.log(post?.comments)
+  console.log(post?.comments === Comments)
   console.log("type",post?.comments)
   const [CommentWriting, setCommentWriting] = useState("");
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);

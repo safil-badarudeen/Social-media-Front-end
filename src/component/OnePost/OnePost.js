@@ -58,9 +58,7 @@ function OnePost( ) {
   const [Count, setCount] = useState(post?.like?.length);
   //  console.log("Count", Count)
   const [Comments, setComments] = useState(post?.comments);
- post?.comments.map((item)=>(
-  console.log(item)
- ))
+ console.log(post?.comments === Comments)
   const [CommentCount, setCommentCount] = useState(post?.comments?.length);
   // console.log(post?.comments) 
   // console.log(typeof Comments)
